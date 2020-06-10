@@ -1,110 +1,116 @@
 {
-  "id": "QED42_Test",
+  "id": "backstop_default",
   "viewports": [
     {
-      "label": "Desktop",
-      "width": 1366,
-      "height": 768
+      "label": "Pixel 2XL",
+      "width": 411,
+      "height": 823
     },
     {
-      "label": "Mobile",
-      "width": 360,
-      "height": 768
+      "label": "Desktop",
+      "width": 1440,
+      "height": 900
     }
   ],
+  "onBeforeScript": "puppet/onBefore.js",
+  "onReadyScript": "puppet/onReady.js",
+  "cookiePath": "backstop_data/engine_scripts/cookies.json",
+
   "scenarios": [
     {
-      "onBeforeScript": "puppet/onBefore.js",
-      "onReadyScript": "puppet/onReady.js",
-      "label": "Homepage",
-      "url": "https://qed42.com",
-      "referenceUrl": "http://pprod.qed42.webfactional.com/",
-      "clickSelector": "",
-      "delay": "",
-      "readyEvent": "",
-      "removeSelectors": [],
-      "hideSelectors": ["#block-letstalk"],
-      "hoverSelector": "",
-      "postInteractionWait": "",
-      "readySelector": "",
-      "selectors": [".menu"],
-      "selectorExpansion": false,
-      "expect": 0,
-      "misMatchThreshold" : 0.1,
-      "requireSameDimensions": true
+      "viewports": [
+        {
+          "label": "Desktop",
+          "width": 1440,
+          "height": 900
+        }
+      ],
+      "label": "Navigation Menu Desktop",
+      "url": "https://www.qed42.com//",
+      "onReadyScript": "puppet/custom.js",
+      "selectors": [
+        ".region-header"
+      ]
     },
+
     {
-      "onBeforeScript": "puppet/onBefore.js",
-      "onReadyScript": "puppet/onReady.js",
-      "label": "Services",
-      "url": "https://qed42.com/services",
-      "referenceUrl": "http://pprod.qed42.webfactional.com/services",
-      "clickSelector": "",
-      "delay": "",
-      "readyEvent": "",
-      "removeSelectors": [],
-      "hideSelectors": [],
-      "hoverSelector": "",
-      "postInteractionWait": "",
-      "readySelector": "",
-      "selectors": [],
-      "selectorExpansion": false,
-      "expect": 0,
-      "misMatchThreshold" : 0.1,
-      "requireSameDimensions": true
+      "viewports": [
+        {
+          "label": "phone",
+          "width": 411,
+          "height": 823
+        }
+      ],
+      "label": "Navigation Test",
+      "url": "https://www.qed42.com//",
+      "clickSelector": [
+        ".navbar-toggle"
+      ],
+      "selectors": [
+        ".we-mega-menu-ul"
+      ]
     },
+
     {
-      "onBeforeScript": "puppet/onBefore.js",
-      "onReadyScript": "puppet/onReady.js",
-      "label": "Work",
-      "url": "https://qed42.com/work",
-      "referenceUrl": "http://pprod.qed42.webfactional.com/work",
-      "clickSelector": "",
-      "delay": "",
-      "readyEvent": "",
-      "removeSelectors": [],
-      "hideSelectors": [],
-      "hoverSelector": "",
-      "postInteractionWait": "",
-      "readySelector": "",
-      "selectors": [],
-      "selectorExpansion": false,
-      "expect": 0,
-      "misMatchThreshold" : 0.1,
-      "requireSameDimensions": true
+      "viewports": [
+        {
+          "label": "phone",
+          "width": 411,
+          "height": 823
+        }
+      ],
+      "label": "Navigation Menu Mobile",
+      "url": "https://www.qed42.com//",
+      "clickSelector": [
+        ".agree-button",
+        ".navbar-toggle"
+      ],
+      "postInteractionWait": 2000,
+      "selectors": [
+        ".we-mega-menu-ul"
+      ]
     },
+
     {
-      "onBeforeScript": "puppet/onBefore.js",
-      "onReadyScript": "puppet/onReady.js",
-      "label": "Open Source",
-      "url": "https://www.qed42.com/open-source",
-      "referenceUrl": "http://pprod.qed42.webfactional.com/open-source",
-      "clickSelector": "",
-      "delay": "",
-      "readyEvent": "",
-      "removeSelectors": [],
-      "hideSelectors": [],
-      "hoverSelector": "",
-      "postInteractionWait": "",
-      "readySelector": "",
-      "selectors": [],
-      "selectorExpansion": false,
-      "expect": 0,
-      "misMatchThreshold" : 0.1,
-      "requireSameDimensions": true
+      "label": "Blog Desktop",
+      "url": "https://www.qed42.com/blog",
+      "onReadyScript": "puppet/custom.js",
+      "hideSelectors": [
+        ".region-header"
+      ],
+      "removeSelectors": [
+        ".region-footer"
+      ],
+      "selectors": ""
+    },
+
+    {
+      "label": "Contact Us Desktop",
+      "url": "https://www.qed42.com/contact",
+      "delay": 20000,
+      "onReadyScript": "puppet/contact.js",
+      "selectors": ""
     }
   ],
+
+  "misMatchThreshold": 0.1,
+  "requireSameDimensions": true,
   "paths": {
     "bitmaps_reference": "backstop_data/bitmaps_reference",
     "bitmaps_test": "backstop_data/bitmaps_test",
     "engine_scripts": "backstop_data/engine_scripts",
     "html_report": "backstop_data/html_report",
-    "ci_report": "backstop_data/ci_report"
+    "ci_report": "backstop_data/ci_report",
+    "custom": "backstop_data/engine_scripts/puppet/custom.js"
   },
-  "report": ["browser"],
+  "report": [
+    "browser"
+  ],
   "engine": "puppeteer",
   "engineOptions": {
-    "args": ["--no-sandbox"]
+    "args": [
+      "--no-sandbox"
+    ]
   },
   "asyncCaptureLimit": 5,
   "asyncCompareLimit": 50,
